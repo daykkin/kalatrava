@@ -318,7 +318,8 @@
         streamLabel: 'Listen now'
       }
     };
-    const userLang = (navigator.language || navigator.userLanguage || 'en').slice(0, 2);
+    const urlLang = new URLSearchParams(location.search).get('lang');
+    const userLang = urlLang || (navigator.language || navigator.userLanguage || 'en').slice(0, 2);
     const t = i18n[userLang] || i18n.en;
     document.title = t.title;
     document.documentElement.lang = userLang === 'es' ? 'es' : userLang === 'ru' ? 'ru' : 'en';
