@@ -288,5 +288,46 @@
     </div>
 
   </div>
+  <script>
+    const i18n = {
+      ru: {
+        title: 'Lata de Sync — Калатрава',
+        label: 'Новый релиз · 2026',
+        trackTitle: 'Калатрава',
+        subtitle: 'Исконно Астурийский ансамбль',
+        description: 'Патриотический шлягер — о\u00a0жизни, о\u00a0любви<br>и\u00a0о\u00a0неминуемом.',
+        tagline: 'Приятного прослушивания',
+        streamLabel: 'Слушать сейчас'
+      },
+      es: {
+        title: 'Lata de Sync — Calatrava',
+        label: 'Nuevo lanzamiento · 2026',
+        trackTitle: 'Calatrava',
+        subtitle: 'Conjunto genuinamente asturiano',
+        description: 'Un éxito patriótico — sobre\u00a0la\u00a0vida, sobre\u00a0el\u00a0amor<br>y\u00a0sobre lo\u00a0inevitable.',
+        tagline: 'Disfruta la escucha',
+        streamLabel: 'Escuchar ahora'
+      },
+      en: {
+        title: 'Lata de Sync — Calatrava',
+        label: 'New release · 2026',
+        trackTitle: 'Calatrava',
+        subtitle: 'A genuinely Asturian ensemble',
+        description: 'A patriotic hit — about\u00a0life, about\u00a0love<br>and\u00a0about the\u00a0inevitable.',
+        tagline: 'Enjoy listening',
+        streamLabel: 'Listen now'
+      }
+    };
+    const userLang = (navigator.language || navigator.userLanguage || 'en').slice(0, 2);
+    const t = i18n[userLang] || i18n.en;
+    document.title = t.title;
+    document.documentElement.lang = userLang === 'es' ? 'es' : userLang === 'ru' ? 'ru' : 'en';
+    document.querySelector('.label').textContent = t.label;
+    document.querySelector('.title em').textContent = t.trackTitle;
+    document.querySelector('.subtitle').textContent = t.subtitle;
+    document.querySelector('.description').innerHTML = t.description;
+    document.querySelector('.tagline').textContent = t.tagline;
+    document.querySelector('.stream-label').textContent = t.streamLabel;
+  </script>
 </body>
 </html>
